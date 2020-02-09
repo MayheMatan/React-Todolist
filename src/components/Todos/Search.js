@@ -16,7 +16,7 @@ const Search = React.memo(props => {
             ? ''
             : `?orderBy="title"&equalTo="${enteredFilter}"`;
         fetch(
-          'https://react-todo-619a1.firebaseio.com/todos.json' + query
+          process.env.REACT_APP_FIRE_BASE_URL + 'todos.json' + query
         )
           .then(response => response.json())
           .then(responseData => {

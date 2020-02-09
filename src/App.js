@@ -6,7 +6,7 @@ import { AuthContext } from './context/auth-context';
 
 const App = props => {
   const authContext = useContext(AuthContext);
-
+  console.log(process.env.FIRE_BASE_URL)
   let content = <Auth />;
   if (authContext.isAuth) {
     content = <Todos />;

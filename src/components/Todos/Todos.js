@@ -57,7 +57,7 @@ const Todos = () => {
 
   const addTodoHandler = useCallback(todo => {
     dispatchHttp({ type: 'SEND' });
-    fetch('https://react-todo-619a1.firebaseio.com/todos.json', {
+    fetch(process.env.REACT_APP_FIRE_BASE_URL + `todos.json`, {
       method: 'POST',
       body: JSON.stringify(todo),
       headers: { 'Content-Type': 'application/json' }
@@ -78,7 +78,7 @@ const Todos = () => {
   const removeTodoHandler = useCallback(todoId => {
     dispatchHttp({ type: 'SEND' });
     fetch(
-      `https://react-todo-619a1.firebaseio.com/todos/${todoId}.json`,
+      process.env.REACT_APP_FIRE_BASE_URL + `todos/${todoId}.json`,
       {
         method: 'DELETE'
       }
@@ -95,7 +95,7 @@ const Todos = () => {
   const CheckTodoHandler = useCallback(todo => {
     dispatchHttp({ type: 'SEND' });
     fetch(
-      `https://react-todo-619a1.firebaseio.com/todos/${todo.id}.json`,
+      process.env.REACT_APP_FIRE_BASE_URL + `todos/${todo.id}.json`,
       {
         method: 'PUT',
         body: JSON.stringify(todo),
